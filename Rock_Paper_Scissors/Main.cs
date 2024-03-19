@@ -10,5 +10,18 @@ class RockPaperScissors
 
         Console.WriteLine($"\nWelcome, {player.Nickname}! May the odds be ever in your favor!!");
 
+        while(true)
+        {
+            PlayerManager.ShowPlayerInfo(player);
+
+            if(!Battle.CheckReadyForBattle())
+            {
+                Battle.ExitGame();
+                break;
+            }
+
+            Console.WriteLine("Here we go!");
+        }
+        
     }
 }
