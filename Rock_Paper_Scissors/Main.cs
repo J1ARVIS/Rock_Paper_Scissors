@@ -8,7 +8,7 @@ class RockPaperScissors
 
         PlayerManager.Player player = PlayerManager.InitializePlayer("\nEnter your nickname", "\nEnter your age");
 
-        Console.WriteLine($"\nWelcome, {player.Nickname}! May the odds be ever in your favor!!");
+        Console.WriteLine($"\nWelcome, {player.Nickname}! May the odds be ever in your favor!");
 
         while(true)
         {
@@ -20,7 +20,16 @@ class RockPaperScissors
                 break;
             }
 
-            Console.WriteLine("Here we go!");
+            if (Battle.PlayBattleIsWon())
+            {
+                player = PlayerManager.UpdatePlayerWins(player, true);
+                Battle.PraisePlayer();
+            }
+            else
+            {
+                player = PlayerManager.UpdatePlayerWins(player, false);
+                Battle.EncouragePlayer();
+            }
         }
         
     }

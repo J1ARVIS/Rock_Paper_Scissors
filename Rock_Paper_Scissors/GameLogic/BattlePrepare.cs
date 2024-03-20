@@ -1,4 +1,6 @@
 ﻿using Rock_Paper_Scissors.helpers;
+using Rock_Paper_Scissors.Helpers;
+using static Rock_Paper_Scissors.GameLogic.Battle;
 
 namespace Rock_Paper_Scissors.GameLogic
 {
@@ -18,7 +20,7 @@ namespace Rock_Paper_Scissors.GameLogic
             do
             {
                 int randomNumber = AssistData.GenerateRandomNumber(0, prompts.Length - 1);
-                Console.Write($"{prompts[randomNumber]}   ('y' to start): ");
+                Console.Write($"\n{prompts[randomNumber]}   ('y' to start): ");
                 answer = Console.ReadLine().ToLower();
             } while (!Validators.ValidateStringLimit(answer, 10));
             
@@ -53,16 +55,23 @@ namespace Rock_Paper_Scissors.GameLogic
             do
             {
                 int randomNumber = AssistData.GenerateRandomNumber(0, weaponPrompts.Length - 1);
-                weaponChoice = (int)Validators.GetValidNum($"{weaponPrompts[randomNumber]}   (rock = 1, paper = 2, scissors = 3): ");
+                weaponChoice = (int)Validators.GetValidNum($"\n{weaponPrompts[randomNumber]}   (rock = 1, paper = 2, scissors = 3): ");
 
             } while (!Validators.ValidateNumLimits(weaponChoice, 1, 3));
 
             return weaponChoice;
         }
 
-        internal static int GetAIWeapon()
+        internal static int GetAIWeapon(int playerWeapon)
         {
+            int AIWeapon;
 
+            do
+            {
+                AIWeapon = AssistData.GenerateRandomNumber(1, 3);
+            } while (playerWeapon == AIWeapon);
+
+            return AIWeapon;
         }
     }
 }

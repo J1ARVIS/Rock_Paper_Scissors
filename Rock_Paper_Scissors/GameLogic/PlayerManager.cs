@@ -54,7 +54,16 @@ namespace Rock_Paper_Scissors.GameLogic
             Console.WriteLine($"\t║ Age:\t\t{player.Age}");
             Console.WriteLine($"\t║ Rounds Played: {player.RoundsPlayed}");
             Console.WriteLine($"\t║ Battles Won:\t{player.BattlesWon}");
-            Console.WriteLine($"\t╚═══════════════════════╝\n");
+            Console.WriteLine($"\t╚═══════════════════════╝");
+        }
+
+        internal static Player UpdatePlayerWins(Player player, bool battleWon)
+        {
+            player.RoundsPlayed += 3;
+
+            if (battleWon) player.BattlesWon++; 
+
+            return player;
         }
     }
 }
