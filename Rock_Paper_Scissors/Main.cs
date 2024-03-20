@@ -31,6 +31,6 @@ class RockPaperScissors
                 Battle.EncouragePlayer();
             }
         }
-        
+        Console.ReadKey();
     }
 }
