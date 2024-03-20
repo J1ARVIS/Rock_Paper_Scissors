@@ -14,9 +14,9 @@ class RockPaperScissors
         {
             PlayerManager.ShowPlayerInfo(player);
 
-            if(!Battle.CheckReadyForBattle())
+            if(!BattlePrepare.CheckReadyForBattle())
             {
-                Battle.ExitGame();
+                BattlePrepare.ExitGame();
                 break;
             }
 

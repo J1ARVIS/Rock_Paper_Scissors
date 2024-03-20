@@ -26,7 +26,7 @@ namespace Rock_Paper_Scissors.GameLogic
             {
                 Console.Write($"{prompt} (max {limitLength} characters): ");
                 nickname = Console.ReadLine();
-            } while (!Validators.ValidateNickname(nickname, limitLength));
+            } while (!Validators.ValidateStringLimit(nickname, limitLength));
 
             return nickname;
         }
@@ -39,7 +39,7 @@ namespace Rock_Paper_Scissors.GameLogic
             {
                 age = (int)Validators.GetValidNum($"{prompt} (between {bottomLimit} and {topLimit}): ");
 
-            } while (!Validators.ValidateAge(age, bottomLimit, topLimit));
+            } while (!Validators.ValidateNumLimits(age, bottomLimit, topLimit));
 
             return age;
         }

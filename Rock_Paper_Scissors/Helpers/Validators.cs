@@ -2,21 +2,21 @@
 {
     internal class Validators
     {
-        internal static bool ValidateNickname(string nickname, int limitLength)
+        internal static bool ValidateStringLimit(string input, int limitLength)
         {
-            if (string.IsNullOrEmpty(nickname) || nickname.Length > limitLength)
+            if (string.IsNullOrEmpty(input) || input.Length > limitLength)
             {
-                Console.WriteLine($"Error: Nickname must be between 1 and {limitLength} characters long.");
+                Console.WriteLine($"Error: String must be between 1 and {limitLength} characters long.");
                 return false;
             }
             return true;
         }
 
-        internal static bool ValidateAge(int age, int bottomLimit, int topLimit)
+        internal static bool ValidateNumLimits(int num, int bottomLimit, int topLimit)
         {
-            if (age < bottomLimit || age > topLimit)
+            if (num < bottomLimit || num > topLimit)
             {
-                Console.WriteLine($"Error: Age must be between {bottomLimit} and {topLimit}.");
+                Console.WriteLine($"Error: Number must be between {bottomLimit} and {topLimit}.");
                 return false;
             }
             return true;
